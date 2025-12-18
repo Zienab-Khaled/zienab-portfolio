@@ -336,7 +336,7 @@ app.innerHTML = `
         <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
           ${portfolioData.projects.map((project, index) => `
-            <div class="project-card" data-aos="zoom-in" data-aos-delay="${index * 100}">
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="${index * 100}" data-project-index="${index}">
               <div class="project-header">
                 <h3>${project.name}</h3>
                 <span class="project-type">${project.type}</span>
@@ -344,14 +344,17 @@ app.innerHTML = `
               <ul class="project-description">
                 ${project.description.map(desc => `<li>${desc}</li>`).join('')}
               </ul>
-              ${project.link ? `
-                <a href="${project.link}" target="_blank" class="project-link">
-                  View Live Site
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-                  </svg>
-                </a>
-              ` : ''}
+              <div class="project-actions">
+                <button class="project-details-btn">View Details</button>
+                ${project.link ? `
+                  <a href="${project.link}" target="_blank" class="project-link">
+                    View Live Site
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                    </svg>
+                  </a>
+                ` : ''}
+              </div>
             </div>
           `).join('')}
         </div>
@@ -361,30 +364,95 @@ app.innerHTML = `
     <!-- Skills Section -->
     <section id="skills" class="skills">
       <div class="container">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-category" data-aos="fade-right">
-            <h3>Programming Languages</h3>
-            <div class="skill-tags">
-              ${portfolioData.skills.languages.map(lang => `<span class="skill-tag">${lang}</span>`).join('')}
+        <h2 class="section-title">Technical Arsenal</h2>
+        <div class="skills-terminal">
+          <div class="terminal-header">
+            <div class="terminal-controls">
+              <span class="control red"></span>
+              <span class="control yellow"></span>
+              <span class="control green"></span>
             </div>
+            <div class="terminal-title">skills.config</div>
           </div>
-          <div class="skill-category" data-aos="fade-left">
-            <h3>Backend Development</h3>
-            <div class="skill-tags">
-              ${portfolioData.skills.backend.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+          <div class="terminal-body">
+            <div class="skill-stack" data-aos="fade-up">
+              <div class="stack-header">
+                <span class="stack-icon">💻</span>
+                <h3>Programming Languages</h3>
+              </div>
+              <div class="skill-items">
+                ${portfolioData.skills.languages.map((lang, i) => `
+                  <div class="skill-item" style="animation-delay: ${i * 0.1}s">
+                    <div class="skill-name">
+                      <span class="bullet">▹</span>
+                      ${lang}
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" style="width: ${95 - i * 5}%"></div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
             </div>
-          </div>
-          <div class="skill-category" data-aos="fade-right">
-            <h3>Web Scraping & Data Processing</h3>
-            <div class="skill-tags">
-              ${portfolioData.skills.webScraping.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+
+            <div class="skill-stack" data-aos="fade-up" data-aos-delay="100">
+              <div class="stack-header">
+                <span class="stack-icon">⚙️</span>
+                <h3>Backend Development</h3>
+              </div>
+              <div class="skill-items">
+                ${portfolioData.skills.backend.map((skill, i) => `
+                  <div class="skill-item" style="animation-delay: ${i * 0.1}s">
+                    <div class="skill-name">
+                      <span class="bullet">▹</span>
+                      ${skill}
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" style="width: ${90 - i * 3}%"></div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
             </div>
-          </div>
-          <div class="skill-category" data-aos="fade-left">
-            <h3>Database & Search Technologies</h3>
-            <div class="skill-tags">
-              ${portfolioData.skills.databases.map(db => `<span class="skill-tag">${db}</span>`).join('')}
+
+            <div class="skill-stack" data-aos="fade-up" data-aos-delay="200">
+              <div class="stack-header">
+                <span class="stack-icon">🕷️</span>
+                <h3>Web Scraping & Data Processing</h3>
+              </div>
+              <div class="skill-items">
+                ${portfolioData.skills.webScraping.map((skill, i) => `
+                  <div class="skill-item" style="animation-delay: ${i * 0.1}s">
+                    <div class="skill-name">
+                      <span class="bullet">▹</span>
+                      ${skill}
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" style="width: ${92 - i * 4}%"></div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+
+            <div class="skill-stack" data-aos="fade-up" data-aos-delay="300">
+              <div class="stack-header">
+                <span class="stack-icon">🗄️</span>
+                <h3>Database & Search Technologies</h3>
+              </div>
+              <div class="skill-items">
+                ${portfolioData.skills.databases.map((db, i) => `
+                  <div class="skill-item" style="animation-delay: ${i * 0.1}s">
+                    <div class="skill-name">
+                      <span class="bullet">▹</span>
+                      ${db}
+                    </div>
+                    <div class="skill-bar">
+                      <div class="skill-progress" style="width: ${88 - i * 3}%"></div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
             </div>
           </div>
         </div>
@@ -399,16 +467,28 @@ app.innerHTML = `
           <p class="contact-intro">I'm always open to new opportunities and interesting projects. Feel free to reach out!</p>
           <div class="contact-methods">
             <a href="mailto:${portfolioData.email}" class="contact-method">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </div>
               <span>${portfolioData.email}</span>
             </a>
-            <a href="tel:${portfolioData.phone.split('/')[0].trim()}" class="contact-method">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-              </svg>
-              <span>${portfolioData.phone}</span>
+            <a href="https://wa.me/201211470485" target="_blank" class="contact-method">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+              </div>
+              <span>01211470485 (WhatsApp)</span>
+            </a>
+            <a href="tel:01030733959" class="contact-method">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+              </div>
+              <span>01030733959</span>
             </a>
           </div>
         </div>
@@ -426,6 +506,40 @@ app.innerHTML = `
         </div>
       </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" aria-label="Scroll to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </button>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+        <div class="modal-body">
+          <div class="modal-header">
+            <h2 class="modal-title"></h2>
+            <span class="modal-type"></span>
+          </div>
+          <div class="modal-description"></div>
+          <div class="modal-footer">
+            <a href="#" target="_blank" class="modal-link" style="display: none;">
+              Visit Live Site
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 `;
 
@@ -713,4 +827,131 @@ progressDots.forEach(dot => {
       });
     }
   });
+});
+
+// Scroll to Top Button
+const scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+// Smooth scroll function with easing
+const smoothScrollToTop = () => {
+  const targetPosition = 0;
+  const startPosition = window.pageYOffset;
+  const distance = startPosition - targetPosition;
+  const duration = 1000; // 1 second
+  let start: number | null = null;
+
+  const easeInOutCubic = (t: number): number => {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  };
+
+  const animation = (currentTime: number) => {
+    if (start === null) start = currentTime;
+    const timeElapsed = currentTime - start;
+    const progress = Math.min(timeElapsed / duration, 1);
+    const ease = easeInOutCubic(progress);
+    
+    window.scrollTo(0, startPosition - distance * ease);
+    
+    if (timeElapsed < duration) {
+      requestAnimationFrame(animation);
+    }
+  };
+
+  requestAnimationFrame(animation);
+};
+
+// Show/hide button based on scroll position
+const toggleScrollToTop = () => {
+  if (window.scrollY > 300) {
+    scrollToTopBtn?.classList.add('visible');
+  } else {
+    scrollToTopBtn?.classList.remove('visible');
+  }
+};
+
+// Scroll to top functionality
+scrollToTopBtn?.addEventListener('click', () => {
+  smoothScrollToTop();
+});
+
+// Listen to scroll event
+window.addEventListener('scroll', toggleScrollToTop);
+
+// Project Modal Functionality
+const projectModal = document.getElementById('projectModal');
+const modalOverlay = document.querySelector('.modal-overlay');
+const modalClose = document.querySelector('.modal-close');
+const projectCards = document.querySelectorAll('.project-card');
+const projectDetailsBtns = document.querySelectorAll('.project-details-btn');
+
+// Open modal function
+const openProjectModal = (projectIndex: number) => {
+  const project = portfolioData.projects[projectIndex];
+  if (!project || !projectModal) return;
+
+  const modalTitle = projectModal.querySelector('.modal-title');
+  const modalType = projectModal.querySelector('.modal-type');
+  const modalDescription = projectModal.querySelector('.modal-description');
+  const modalLink = projectModal.querySelector('.modal-link') as HTMLAnchorElement;
+
+  if (modalTitle) modalTitle.textContent = project.name;
+  if (modalType) modalType.textContent = project.type;
+  
+  if (modalDescription) {
+    modalDescription.innerHTML = `
+      <h3>Project Overview</h3>
+      <ul>
+        ${project.description.map(desc => `<li>${desc}</li>`).join('')}
+      </ul>
+      ${project.type === 'Current Project' ? `
+        <div class="modal-note">
+          <strong>Status:</strong> This project is currently in active development.
+        </div>
+      ` : ''}
+    `;
+  }
+
+  if (modalLink && project.link) {
+    modalLink.href = project.link;
+    modalLink.style.display = 'inline-flex';
+  } else if (modalLink) {
+    modalLink.style.display = 'none';
+  }
+
+  projectModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+// Close modal function
+const closeProjectModal = () => {
+  if (projectModal) {
+    projectModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+};
+
+// Event listeners
+projectDetailsBtns.forEach((btn, index) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const projectCard = btn.closest('.project-card');
+    const projectIndex = projectCard?.getAttribute('data-project-index');
+    if (projectIndex) {
+      openProjectModal(parseInt(projectIndex));
+    }
+  });
+});
+
+// Close modal on overlay click
+modalOverlay?.addEventListener('click', closeProjectModal);
+
+// Close modal on close button click
+modalClose?.addEventListener('click', closeProjectModal);
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && projectModal?.classList.contains('active')) {
+    closeProjectModal();
+  }
 });
