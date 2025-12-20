@@ -944,8 +944,8 @@ const updateProgressDots = () => {
     currentSectionIndex = sections.length - 1;
   } else {
     sections.forEach((section, index) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
+      const sectionTop = (section as HTMLElement).offsetTop;
+      const sectionHeight = (section as HTMLElement).clientHeight;
       
       if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
         currentSection = section.getAttribute('id') || 'home';
