@@ -2430,7 +2430,7 @@ section.animate {
 .contact-method {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 1.5rem;
   padding: 1.5rem 2rem;
   background: var(--bg-primary);
@@ -2449,8 +2449,9 @@ section.animate {
 }
 
 .contact-icon {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2458,8 +2459,8 @@ section.animate {
 }
 
 .contact-method svg {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   stroke-width: 2;
   display: block;
 }
