@@ -742,7 +742,7 @@ navLinks.forEach(link => {
     
     if (targetSection) {
       const navHeight = 70; // Height of fixed navigation
-      const targetPosition = targetSection.offsetTop - navHeight;
+      const targetPosition = (targetSection as HTMLElement).offsetTop - navHeight;
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
@@ -996,7 +996,7 @@ progressDots.forEach(dot => {
     
     if (targetSection) {
       const navHeight = 70; // Height of fixed navigation
-      const targetPosition = targetSection.offsetTop - navHeight;
+      const targetPosition = (targetSection as HTMLElement).offsetTop - navHeight;
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
@@ -1057,7 +1057,6 @@ window.addEventListener('scroll', toggleScrollToTop);
 const projectModal = document.getElementById('projectModal');
 const modalOverlay = document.querySelector('.modal-overlay');
 const modalClose = document.querySelector('.modal-close');
-const projectCards = document.querySelectorAll('.project-card');
 const projectDetailsBtns = document.querySelectorAll('.project-details-btn');
 
 // Open modal function
@@ -1107,7 +1106,7 @@ const closeProjectModal = () => {
 };
 
 // Event listeners
-projectDetailsBtns.forEach((btn, index) => {
+projectDetailsBtns.forEach((btn) => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
