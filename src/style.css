@@ -2172,12 +2172,13 @@ section.animate {
   padding-left: 1.5rem;
   margin-bottom: 1.5rem;
   flex-grow: 1;
+  list-style-position: inside;
 }
 
 .project-description li {
   color: var(--text-secondary);
   margin-bottom: 0.7rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .project-link {
@@ -3247,8 +3248,20 @@ section.animate {
     height: 180px;
   }
 
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
   .project-header h3 {
     font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  .project-type {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.8rem;
   }
 
   .project-card > *:not(.project-image) {
@@ -3257,10 +3270,42 @@ section.animate {
 
   .project-card > .project-header {
     padding-top: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .project-card > .project-description {
+    padding: 0 1.5rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    padding-left: 0.5rem;
+    margin-bottom: 1.5rem;
+    list-style-position: inside;
+  }
+
+  .project-description li {
+    font-size: 0.95rem;
+    margin-bottom: 0.9rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
   }
 
   .project-card > .project-actions {
     padding: 0 1.5rem 1.5rem;
+  }
+
+  .project-technologies {
+    padding: 0 1.5rem;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.75rem;
   }
 
   .terminal-header {
@@ -3299,8 +3344,60 @@ section.animate {
     padding: 2rem 1.5rem 1.5rem;
   }
 
+  .modal-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
   .modal-title {
     font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .modal-type {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.9rem;
+  }
+
+  .modal-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .modal-description h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .modal-description ul {
+    padding-left: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .modal-description li {
+    font-size: 0.9rem;
+    margin-bottom: 0.7rem;
+    line-height: 1.6;
+  }
+
+  .modal-note {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+    margin-top: 1.2rem;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-top: 1.2rem;
+  }
+
+  .modal-link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1.2rem;
+    font-size: 0.9rem;
   }
 
   .modal-close {
@@ -3310,9 +3407,35 @@ section.animate {
     height: 35px;
   }
 
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .about-profile-image {
+    order: -1;
+  }
+
+  .profile-image-wrapper {
+    width: 250px;
+    height: 250px;
+  }
+
+  .about-text {
+    text-align: left;
+  }
+
+  .about-summary {
+    font-size: 1rem;
+    line-height: 1.7;
+    padding-left: 1.2rem;
+  }
+
   .about-stats {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    margin-top: 2.5rem;
   }
 
   .stat {
@@ -3332,11 +3455,6 @@ section.animate {
 
   .stat-number {
     font-size: 2.5rem;
-  }
-
-  .profile-image-wrapper {
-    width: 200px;
-    height: 200px;
   }
 
   .footer .container {
@@ -3476,6 +3594,65 @@ section.animate {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
     line-height: 1.6;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .about-profile-image {
+    order: -1;
+  }
+
+  .profile-image-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-text {
+    text-align: left;
+  }
+
+  .about-summary {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    padding-left: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .about-summary::before {
+    width: 3px;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .stat {
+    padding: 1.5rem 1rem;
+  }
+
+  .stat-icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 0.8rem;
+  }
+
+  .stat-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
   }
 
   .hero {
@@ -3638,8 +3815,20 @@ section.animate {
     height: 160px;
   }
 
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
   .project-header h3 {
     font-size: 1.3rem;
+    line-height: 1.3;
+  }
+
+  .project-type {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.7rem;
   }
 
   .project-card > *:not(.project-image) {
@@ -3648,6 +3837,29 @@ section.animate {
 
   .project-card > .project-header {
     padding-top: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-card > .project-description {
+    padding: 0 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    padding-left: 0.5rem;
+    margin-bottom: 1.2rem;
+    list-style-position: inside;
+    margin-top: 0;
+  }
+
+  .project-description li {
+    font-size: 0.9rem;
+    margin-bottom: 0.9rem;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    text-align: left;
   }
 
   .project-card > .project-actions {
@@ -3657,6 +3869,7 @@ section.animate {
   .project-technologies {
     padding: 0 1.2rem;
     gap: 0.4rem;
+    margin-bottom: 1rem;
   }
 
   .tech-tag {
@@ -3699,8 +3912,67 @@ section.animate {
     padding: 1.5rem 1rem 1rem;
   }
 
+  .modal-header {
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+  }
+
   .modal-title {
     font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .modal-type {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .modal-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .modal-description h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .modal-description ul {
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .modal-description li {
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+  }
+
+  .modal-note {
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    border-left-width: 3px;
+  }
+
+  .modal-footer {
+    flex-direction: column;
+    gap: 0.7rem;
+    padding-top: 1rem;
+  }
+
+  .modal-link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .modal-link svg {
+    width: 16px;
+    height: 16px;
   }
 
   .modal-close {
