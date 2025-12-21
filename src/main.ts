@@ -453,14 +453,6 @@ app.innerHTML = `
         <div class="projects-grid">
           ${portfolioData.projects.map((project, index) => `
             <div class="project-card" data-aos="zoom-in" data-aos-delay="${index * 100}" data-project-index="${index}">
-              <div class="project-image">
-                <div class="project-image-placeholder" style="background: linear-gradient(135deg, ${['#667eea', '#764ba2', '#f093fb', '#4facfe', '#00f2fe'][index % 5]} 0%, ${['#764ba2', '#f093fb', '#4facfe', '#00f2fe', '#667eea'][index % 5]} 100%);">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5">
-                    <rect x="3" y="3" width="18" height="18" rx="2"/>
-                    <path d="M3 9h18M9 3v18"/>
-                  </svg>
-                </div>
-              </div>
               <div class="project-header">
                 <h3>${project.name}</h3>
                 <span class="project-type project-type-${project.type.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}">${project.type}</span>
