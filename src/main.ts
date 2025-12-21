@@ -11,7 +11,7 @@ const portfolioData = {
   linkedin: "https://www.linkedin.com/in/zienab-khaled-hassan/",
   upwork: "https://www.upwork.com/freelancers/~011ce17067ecd83cb",
   resume: "/Zienab Khaled.pdf", // Add your resume file path here
-  profileImage: "/WhatsApp Image 2025-12-19 at 00.34.03.jpeg", // Add your profile image here
+  profileImage: "/WhatsApp Image 2025-12-21 at 12.12.18.jpeg", // Add your profile image here
   
   summary: "Experienced Backend Developer specializing in Laravel, with proficiency in PHP Native and a solid understanding of Python Django. Skilled in project management, client communication, and task delegation, ensuring efficient project delivery.",
   
@@ -504,99 +504,103 @@ app.innerHTML = `
             <div class="terminal-title">skills.config</div>
           </div>
           <div class="terminal-body">
-            <div class="skill-stack" data-aos="fade-up">
-              <div class="stack-header">
-                <span class="stack-icon">💻</span>
-                <h3>Programming Languages</h3>
+            <div class="skill-function" data-aos="fade-up">
+              <div class="function-code">
+                <span class="code-keyword">function</span>
+                <span class="code-function-name">ProgrammingLanguages</span>
+                <span class="code-symbol">()</span>
+                <span class="code-symbol">{</span>
               </div>
-              <div class="skill-items">
-                ${portfolioData.skills.languages.map((lang, i) => {
-                  const skillName = typeof lang === 'string' ? lang : lang.name;
-                  const skillLevel = typeof lang === 'string' ? (95 - i * 5) : lang.level;
-                  return `
-                  <div class="skill-item" style="animation-delay: ${i * 0.1}s">
-                    <div class="skill-name">
-                      <span class="bullet">▹</span>
-                      ${skillName}
-                    </div>
-                    <div class="skill-bar">
-                      <div class="skill-progress" style="width: ${skillLevel}%"></div>
-                    </div>
-                  </div>
-                `;
-                }).join('')}
+              <div class="function-return">
+                <span class="code-keyword">return</span>
+                <span class="code-symbol">[</span>
+                <div class="skill-array-items">
+                  ${portfolioData.skills.languages.map((lang, i) => {
+                    const skillName = typeof lang === 'string' ? lang : lang.name;
+                    return `
+                    <span class="skill-string" style="animation-delay: ${i * 0.08}s">'${skillName}'${i < portfolioData.skills.languages.length - 1 ? ',' : ''}</span>
+                  `;
+                  }).join('')}
+                </div>
+                <span class="code-symbol">];</span>
               </div>
-            </div>
-
-            <div class="skill-stack" data-aos="fade-up" data-aos-delay="100">
-              <div class="stack-header">
-                <span class="stack-icon">⚙️</span>
-                <h3>Backend Development</h3>
-              </div>
-              <div class="skill-items">
-                ${portfolioData.skills.backend.map((skill, i) => {
-                  const skillName = typeof skill === 'string' ? skill : skill.name;
-                  const skillLevel = typeof skill === 'string' ? (90 - i * 3) : skill.level;
-                  return `
-                  <div class="skill-item" style="animation-delay: ${i * 0.1}s">
-                    <div class="skill-name">
-                      <span class="bullet">▹</span>
-                      ${skillName}
-                    </div>
-                    <div class="skill-bar">
-                      <div class="skill-progress" style="width: ${skillLevel}%"></div>
-                    </div>
-                  </div>
-                `;
-                }).join('')}
+              <div class="function-close">
+                <span class="code-symbol">}</span>
               </div>
             </div>
 
-            <div class="skill-stack" data-aos="fade-up" data-aos-delay="200">
-              <div class="stack-header">
-                <span class="stack-icon">🕷️</span>
-                <h3>Web Scraping & Data Processing</h3>
+            <div class="skill-function" data-aos="fade-up" data-aos-delay="100">
+              <div class="function-code">
+                <span class="code-keyword">function</span>
+                <span class="code-function-name">BackendDevelopment</span>
+                <span class="code-symbol">()</span>
+                <span class="code-symbol">{</span>
               </div>
-              <div class="skill-items">
-                ${portfolioData.skills.webScraping.map((skill, i) => {
-                  const skillName = typeof skill === 'string' ? skill : skill.name;
-                  const skillLevel = typeof skill === 'string' ? (92 - i * 4) : skill.level;
-                  return `
-                  <div class="skill-item" style="animation-delay: ${i * 0.1}s">
-                    <div class="skill-name">
-                      <span class="bullet">▹</span>
-                      ${skillName}
-                    </div>
-                    <div class="skill-bar">
-                      <div class="skill-progress" style="width: ${skillLevel}%"></div>
-                    </div>
-                  </div>
-                `;
-                }).join('')}
+              <div class="function-return">
+                <span class="code-keyword">return</span>
+                <span class="code-symbol">[</span>
+                <div class="skill-array-items">
+                  ${portfolioData.skills.backend.map((skill, i) => {
+                    const skillName = typeof skill === 'string' ? skill : skill.name;
+                    return `
+                    <span class="skill-string" style="animation-delay: ${i * 0.08}s">'${skillName}'${i < portfolioData.skills.backend.length - 1 ? ',' : ''}</span>
+                  `;
+                  }).join('')}
+                </div>
+                <span class="code-symbol">];</span>
+              </div>
+              <div class="function-close">
+                <span class="code-symbol">}</span>
               </div>
             </div>
 
-            <div class="skill-stack" data-aos="fade-up" data-aos-delay="300">
-              <div class="stack-header">
-                <span class="stack-icon">🗄️</span>
-                <h3>Database & Search Technologies</h3>
+            <div class="skill-function" data-aos="fade-up" data-aos-delay="200">
+              <div class="function-code">
+                <span class="code-keyword">function</span>
+                <span class="code-function-name">WebScrapingAndDataProcessing</span>
+                <span class="code-symbol">()</span>
+                <span class="code-symbol">{</span>
               </div>
-              <div class="skill-items">
-                ${portfolioData.skills.databases.map((db, i) => {
-                  const skillName = typeof db === 'string' ? db : db.name;
-                  const skillLevel = typeof db === 'string' ? (88 - i * 3) : db.level;
-                  return `
-                  <div class="skill-item" style="animation-delay: ${i * 0.1}s">
-                    <div class="skill-name">
-                      <span class="bullet">▹</span>
-                      ${skillName}
-                    </div>
-                    <div class="skill-bar">
-                      <div class="skill-progress" style="width: ${skillLevel}%"></div>
-                    </div>
-                  </div>
-                `;
-                }).join('')}
+              <div class="function-return">
+                <span class="code-keyword">return</span>
+                <span class="code-symbol">[</span>
+                <div class="skill-array-items">
+                  ${portfolioData.skills.webScraping.map((skill, i) => {
+                    const skillName = typeof skill === 'string' ? skill : skill.name;
+                    return `
+                    <span class="skill-string" style="animation-delay: ${i * 0.08}s">'${skillName}'${i < portfolioData.skills.webScraping.length - 1 ? ',' : ''}</span>
+                  `;
+                  }).join('')}
+                </div>
+                <span class="code-symbol">];</span>
+              </div>
+              <div class="function-close">
+                <span class="code-symbol">}</span>
+              </div>
+            </div>
+
+            <div class="skill-function" data-aos="fade-up" data-aos-delay="300">
+              <div class="function-code">
+                <span class="code-keyword">function</span>
+                <span class="code-function-name">DatabaseAndSearchTechnologies</span>
+                <span class="code-symbol">()</span>
+                <span class="code-symbol">{</span>
+              </div>
+              <div class="function-return">
+                <span class="code-keyword">return</span>
+                <span class="code-symbol">[</span>
+                <div class="skill-array-items">
+                  ${portfolioData.skills.databases.map((db, i) => {
+                    const skillName = typeof db === 'string' ? db : db.name;
+                    return `
+                    <span class="skill-string" style="animation-delay: ${i * 0.08}s">'${skillName}'${i < portfolioData.skills.databases.length - 1 ? ',' : ''}</span>
+                  `;
+                  }).join('')}
+                </div>
+                <span class="code-symbol">];</span>
+              </div>
+              <div class="function-close">
+                <span class="code-symbol">}</span>
               </div>
             </div>
           </div>
